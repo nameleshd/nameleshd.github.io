@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['nick']) && isset($_POST['total'])) {
-    $to = "seninmailin@example.com"; // Mailin gideceği adres
+    $to = "nameleshd@outlook.com"; // Mailin gideceği adres
     $subject = "Yeni Satın Alma - NamelesHd";
     $message = "Nick: " . $_POST['nick'] . "\nToplam: " . $_POST['total'] . "₺";
     $headers = "From: shop@nameleshd.com";
@@ -14,3 +14,4 @@ if(isset($_POST['nick']) && isset($_POST['total'])) {
     echo "<h1>Eksik veri!</h1>";
 }
 ?>
+
