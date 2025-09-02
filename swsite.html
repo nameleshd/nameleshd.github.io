@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NamelesHd Minecraft Sunucusu</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #0b0c1f;
+      color: #fff;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background-color: #1a1b33;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 40px;
+      width: 40px;
+      border-radius: 5px;
+    }
+
+    nav h1 {
+      color: #00ffff;
+      font-size: 24px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ff00ff;
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 150px 20px;
+      background: linear-gradient(135deg, #0b0c1f, #1a1b33);
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      color: #00ffff;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #ccc;
+      max-width: 600px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      margin-top: 30px;
+      font-size: 18px;
+      color: #fff;
+      background: #ff00ff;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00ffff;
+      color: #000;
+    }
+
+    /* Bölümler */
+    .section {
+      padding: 100px 50px;
+      text-align: center;
+    }
+
+    .section h3 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #00ffff;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      background-color: #1a1b33;
+      padding: 30px;
+      border-radius: 20px;
+      width: 250px;
+      transition: 0.3s;
+    }
+
+    .feature:hover {
+      transform: scale(1.05);
+      background-color: #2b2d55;
+    }
+
+    .feature h4 {
+      color: #ff00ff;
+      margin-bottom: 15px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 50px;
+      background-color: #1a1b33;
+      text-align: center;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <img src="logo.png" alt="Logo"> <!-- Buraya kendi logo dosyanı ekle -->
+      <h1>NamelesHd</h1>
+    </div>
+    <div>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="store.html">Mağaza</a>
+      <a href="#features">Özellikler</a>
+      <a href="#server">Sunucu IP</a>
+      <a href="#contact">İletişim</a>
+    </div>
+  </nav>
+
+  <!-- Hero Bölümü -->
+  <section class="hero" id="home">
+    <h2>NamelesHd Minecraft Sunucusu</h2>
+    <p>BoxPvP deneyimini en iyi şekilde yaşa! Özel kitler, hızlı sunucu ve eğlenceli mini oyunlar seni bekliyor.</p>
+    <a href="#server" class="btn">Hemen Bağlan</a>
+  </section>
+
+  <!-- Özellikler -->
+  <section class="section" id="features">
+    <h3>Sunucu Özellikleri</h3>
+    <div class="features">
+      <div class="feature">
+        <h4>BoxPvP</h4>
+        <p>Dengeli ve rekabetçi PvP deneyimi.</p>
+      </div>
+      <div class="feature">
+        <h4>Özel Kitler</h4>
+        <p>Herkese özel yetenek ve eşyalar.</p>
+      </div>
+      <div class="feature">
+        <h4>Hızlı Sunucu</h4>
+        <p>Düşük ping ve stabil bağlantı.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sunucu IP -->
+  <section class="section" id="server">
+    <h3>Sunucu IP</h3>
+    <p>play.nameleshd.com</p>
+    <a href="minecraft://play.nameleshd.com" class="btn">Hemen Bağlan</a>
+  </section>
+
+  <!-- İletişim -->
+  <section class="section" id="contact">
+    <h3>İletişim</h3>
+    <p>Discord: <a href="https://discord.gg/example" style="color:#ff00ff;">Katıl</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 NamelesHd. Tüm hakları saklıdır.
+  </footer>
+
+</body>
+</html>

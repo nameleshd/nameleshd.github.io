@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NamelesHd Mağaza</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #0b0c1f;
+      color: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      background-color: #1a1b33;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 40px;
+      width: 40px;
+      border-radius: 5px;
+    }
+
+    nav h1 {
+      color: #00ffff;
+      font-size: 24px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-left: 30px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ff00ff;
+    }
+
+    .section {
+      padding: 100px 50px;
+      text-align: center;
+    }
+
+    .section h3 {
+      font-size: 36px;
+      margin-bottom: 30px;
+      color: #00ffff;
+    }
+
+    .store-items {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .item {
+      background-color: #1a1b33;
+      padding: 30px;
+      border-radius: 20px;
+      width: 250px;
+      transition: 0.3s;
+    }
+
+    .item:hover {
+      transform: scale(1.05);
+      background-color: #2b2d55;
+    }
+
+    .item h4 {
+      color: #ff00ff;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 15px;
+      font-size: 16px;
+      color: #fff;
+      background: #00ffff;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ff00ff;
+      color: #000;
+    }
+
+    footer {
+      padding: 50px;
+      background-color: #1a1b33;
+      text-align: center;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+      <h1>NamelesHd</h1>
+    </div>
+    <div>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="store.html">Mağaza</a>
+      <a href="#features">Özellikler</a>
+      <a href="#server">Sunucu IP</a>
+      <a href="#contact">İletişim</a>
+    </div>
+  </nav>
+
+  <!-- Mağaza Bölümü -->
+  <section class="section">
+    <h3>Mağaza</h3>
+    <div class="store-items">
+      <div class="item">
+        <h4>VIP Paket</h4>
+        <p>Özel yetenekler ve kitler.</p>
+        <a href="#" class="btn">Satın Al</a>
+      </div>
+      <div class="item">
+        <h4>Legend Paket</h4>
+        <p>En güçlü özellikler ve ayrıcalıklar.</p>
+        <a href="#" class="btn">Satın Al</a>
+      </div>
+      <div class="item">
+        <h4>Premium Paket</h4>
+        <p>Sunucuda fark yaratacak özellikler.</p>
+        <a href="#" class="btn">Satın Al</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 NamelesHd. Tüm hakları saklıdır.
+  </footer>
+
+</body>
+</html>
