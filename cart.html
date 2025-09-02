@@ -7,9 +7,6 @@
 <style>
 body { margin:0; font-family:'Arial',sans-serif; background:#0b0c1f; color:#fff; }
 nav { display:flex; justify-content:space-between; align-items:center; padding:15px 50px; background:#1a1b33; }
-.logo { display:flex; align-items:center; gap:10px; }
-.logo img { height:40px; width:40px; border-radius:5px; }
-nav h1 { color:#00ffff; font-size:24px; }
 nav a { color:#fff; margin-left:30px; text-decoration:none; font-weight:bold; }
 nav a:hover { color:#ff00ff; }
 
@@ -24,7 +21,6 @@ nav a:hover { color:#ff00ff; }
 .cart-right { flex:1; background:#1a1b33; padding:20px; border-radius:20px; min-width:250px; height:max-content; }
 .cart-right h3 { color:#00ffff; margin-top:0; border-bottom:1px solid #2b2d55; padding-bottom:10px; }
 .cart-right p { margin:15px 0; font-size:16px; }
-#playerNick { color:#ff00ff; font-weight:bold; }
 
 .btn { display:block; width:100%; padding:15px; font-size:18px; color:#fff; background:#00ffff; border-radius:10px; text-align:center; text-decoration:none; margin-top:20px; cursor:pointer; transition:.3s; border:none; }
 .btn:hover { background:#ff00ff; color:#000; }
@@ -35,14 +31,9 @@ footer { padding:50px; background:#1a1b33; text-align:center; color:#888; margin
 <body>
 
 <nav>
-  <div class="logo">
-    <img src="logo.png" alt="Logo">
-    <h1>NamelesHd</h1>
-  </div>
   <div>
     <a href="index.html">Ana Sayfa</a>
     <a href="store.html">Mağaza</a>
-    <a href="vip.html">VIP Paket</a>
     <a href="cart.html">Sepet</a>
   </div>
 </nav>
@@ -54,59 +45,76 @@ footer { padding:50px; background:#1a1b33; text-align:center; color:#888; margin
     <div id="cartList"></div>
   </div>
 
-  <!-- Sağ panel: Nick ve ödeme -->
+  <!-- Sağ panel: Ödeme -->
   <div class="cart-right">
     <h3>Ödeme Bilgisi</h3>
-    <form action="mail.php" method="post" id="purchaseForm">
-      <p>Nick: <span id="playerNick">Giriş Yapmadınız</span></p>
-      <input type="hidden" name="nick" id="formNick">
-      <p>Toplam: <span id="totalAmount">₺0</span></p>
-      <input type="hidden" name="total" id="formTotal">
-      <button type="submit" class="btn">Ödeme Yap</button>
-    </form>
+    <p>Toplam: <span id="totalAmount">₺0</span></p>
+    <button class="btn" onclick="checkout()">Ödeme Yap</button>
   </div>
 </section>
 
 <footer>© 2025 NamelesHd. Tüm hakları saklıdır.</footer>
 
 <script>
-// Çerez fonksiyonu
+// Çerez fonksiyonları
 function getCookie(name) {
   let nameEQ = name + "=";
   let ca = document.cookie.split(';');
-  for(let i=0;i < ca.length;i++) {
+  for(let i=0;i<ca.length;i++) {
     let c = ca[i];
-    while (c.charAt(0)==' ') c = c.substring(1,c.length);
-    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    while(c.charAt(0)==' ') c=c.substring(1,c.length);
+    if(c.indexOf(nameEQ)==0) return c.substring(nameEQ.length,c.length);
   }
   return null;
 }
-
-// Sepeti göster
-function showCart() {
-  let cart = JSON.parse(getCookie('cart') || '[]');
-  let container = document.getElementById('cartList');
-  container.innerHTML = '';
-  let total = 0;
-  cart.forEach(item => {
-    let div = document.createElement('div');
-    div.className = 'cart-item';
-    div.innerHTML = `<h4>${item.name}</h4><span>₺${item.price}</span>`;
-    container.appendChild(div);
-    total += item.price;
-  });
-  document.getElementById('totalAmount').innerText = `₺${total}`;
-  document.getElementById('formTotal').value = total;
+function setCookie(name,value,days){
+  let expires="";
+  if(days){
+    let date=new Date();
+    date.setTime(date.getTime()+(days*24*60*60*1000));
+    expires="; expires="+date.toUTCString();
+  }
+  document.cookie=name+"="+(value||"")+expires+"; path=/";
 }
 
-// Nick prompt
-let nick = prompt("Lütfen nickinizi girin:");
-if(nick) {
-  document.getElementById('playerNick').innerText = nick;
-  document.getElementById('formNick').value = nick;
+// Sepeti göster
+function showCart(){
+  let cart = JSON.parse(getCookie('cart') || '[]');
+  let container = document.getElementById('cartList');
+  container.innerHTML='';
+  let total=0;
+  cart.forEach(item=>{
+    let div=document.createElement('div');
+    div.className='cart-item';
+    div.innerHTML=`<h4>${item.name}</h4><span>₺${item.price}</span>`;
+    container.appendChild(div);
+    total+=item.price;
+  });
+  document.getElementById('totalAmount').innerText=`₺${total}`;
+  return total;
 }
 
 showCart();
+
+// Ödeme işlemi
+function checkout(){
+  let cart = JSON.parse(getCookie('cart') || '[]');
+  if(cart.length==0){ alert("Sepet boş!"); return; }
+  let nick = prompt("Nickinizi girin:");
+  if(!nick){ alert("Nick girilmeden ödeme yapılamaz."); return; }
+
+  // Mail gönderme için form
+  let form = document.createElement('form');
+  form.method='POST';
+  form.action='mail.php';
+  form.innerHTML=`<input type='hidden' name='nick' value='${nick}'>
+                  <input type='hidden' name='total' value='${showCart()}'>`;
+  document.body.appendChild(form);
+  form.submit();
+
+  // Sepeti temizle
+  setCookie('cart','',-1);
+}
 </script>
 
 </body>
